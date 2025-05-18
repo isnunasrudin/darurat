@@ -147,8 +147,8 @@
  
              sendLocationData(latitude, longitude);
  
-             intervalId = setInterval(() => {
-                 navigator.geolocation.getCurrentPosition(
+            //  intervalId = setInterval(() => {
+                 navigator.geolocation.watchPosition(
                      (currentPosition) => {
                          const intervalLatitude = currentPosition.coords.latitude;
                          const intervalLongitude = currentPosition.coords.longitude;
@@ -172,11 +172,11 @@
                      },
                      {
                          enableHighAccuracy: true,
-                         timeout: 3000,
+                         timeout: 5000,
                          maximumAge: 0
                      }
                  );
-             }, 3000);
+            //  }, 3000);
          }
  
          function handleLocationError(error) {
